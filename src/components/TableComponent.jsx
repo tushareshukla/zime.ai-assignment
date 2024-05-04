@@ -7,18 +7,24 @@ const TableComponent = () => {
   const [postData, setPostData] = useState([]);
   const [pagination, setPagination] = useState({ skip: 0, limit: 10 });
   const [loading, setLoading] = useState(false);
+  
+ // eslint-disable-next-line
   const [error, setError] = useState(null);
+
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
 
   const fetchPaginatedData = async (skip, limit) => {
     try {
+
         setLoading(true);
+        // console.log(error)
         const url = `https://dummyjson.com/posts?skip=${skip}&limit=${limit}`;
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error('Failed to fetch data' );
+        
         }
         const responseData = await response.json();
         const posts = responseData.posts || []; 
