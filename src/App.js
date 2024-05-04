@@ -1,7 +1,8 @@
 import "./App.css";
+import { Home } from "./pages/Home";
 
 function App() {
-  return <div>Hello Zime.Ai</div>;
+  return <div><Home/></div>;
 }
 
 export default App;
